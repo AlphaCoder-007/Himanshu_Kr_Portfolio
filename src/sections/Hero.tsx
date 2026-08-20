@@ -114,7 +114,8 @@ export function Hero() {
               </a>
 
               <a
-                href={heroData.resumeUrl}
+                href="/resume/Himanshu_Kr_Resume.pdf"
+                download="Himanshu_Kr_Resume.pdf"
                 className="btn-secondary flex items-center gap-2 font-medium w-full sm:w-auto"
               >
                 <FileText className="h-4 w-4" />
