@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans;
+  }
+  
+  /* Modern accessible custom focus rings */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-accent-cyan ring-offset-2 dark:ring-offset-slate-950;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply border border-white/10 bg-white/40 backdrop-blur-md transition-all duration-300 dark:border-slate-800/50 dark:bg-slate-900/60;
+  }
+  
+  .glass-card-hover {
+    @apply hover:border-accent-cyan/30 hover:bg-white/60 hover:shadow-lg hover:shadow-cyan-500/5 dark:hover:border-accent-cyan/30 dark:hover:bg-slate-900/80 dark:hover:shadow-cyan-500/5;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-cyan via-primary-400 to-accent-indigo bg-clip-text text-transparent dark:from-accent-cyan dark:via-primary-300 dark:to-accent-indigo;
+  }
+
+  .text-gradient-teal {
+    @apply bg-gradient-to-r from-teal-500 to-cyan-500 bg-clip-text text-transparent dark:from-teal-400 dark:to-cyan-400;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-slate-800 hover:shadow-lg hover:shadow-slate-900/20 active:scale-95 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 dark:hover:shadow-white/10;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-transparent px-6 py-3 text-sm font-semibold text-slate-700 transition-all duration-300 hover:bg-slate-50 hover:text-slate-900 hover:border-slate-400 active:scale-95 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white dark:hover:border-slate-600;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-50 dark:bg-slate-950;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-slate-300 hover:bg-slate-400 dark:bg-slate-800 dark:hover:bg-slate-700;
+}
