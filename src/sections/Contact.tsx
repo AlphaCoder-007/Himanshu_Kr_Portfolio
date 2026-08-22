@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle, Mail, AlertCircle, Linkedin, Github } from 'lucide-react';
 import { heroData } from '../data/portfolioData';
+import { useSiteConfig } from '../hooks/useSiteConfig';
 
 interface FormState {
   name: string;
@@ -16,6 +17,7 @@ interface FormErrors {
 }
 
 export function Contact() {
+  const config = useSiteConfig();
   const [formData, setFormData] = useState<FormState>({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -114,7 +116,7 @@ export function Contact() {
               </span>
               <div className="flex gap-2">
                 <a
-                  href={heroData.linkedinUrl}
+                  href={config.linkedInURL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-accent-cyan/30 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 transition-all duration-300"
@@ -123,7 +125,7 @@ export function Contact() {
                   <span>LinkedIn</span>
                 </a>
                 <a
-                  href={heroData.githubUrl}
+                  href={config.gitURL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:border-accent-cyan/30 hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 transition-all duration-300"

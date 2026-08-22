@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon, Terminal } from 'lucide-react';
+import { NavbarParticleLogo } from '../components/NavbarParticleLogo';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Theme } from '../hooks/useTheme';
 
@@ -107,11 +108,11 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
           href="#home"
           onClick={(e) => handleNavClick(e, '#home')}
           className="flex items-center gap-2 font-mono text-lg font-bold tracking-tight text-slate-900 dark:text-white"
-          aria-label="Alex Mercer Portfolio Home"
+          aria-label="Himanshu Kr. Tripathi Portfolio Home"
         >
-          <Terminal className="h-5 w-5 text-accent-cyan" />
+          <NavbarParticleLogo className="h-8 w-8" />
           <span>
-            alex_mercer<span className="text-accent-cyan">.sh</span>
+            HT<span className="text-accent-cyan">.dev</span>
           </span>
         </a>
 

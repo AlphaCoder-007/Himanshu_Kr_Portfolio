@@ -19,8 +19,19 @@ vi.mock('framer-motion', () => ({
     )),
     ul: vi.fn().mockImplementation(({ children, className }) => <ul className={className}>{children}</ul>),
     li: vi.fn().mockImplementation(({ children, className }) => <li className={className}>{children}</li>),
+    svg: vi.fn().mockImplementation(({ children, className, viewBox, fill, xmlns, variants, animate, ...props }) => (
+      <svg className={className} viewBox={viewBox} fill={fill} xmlns={xmlns} {...props}>{children}</svg>
+    )),
   },
   AnimatePresence: ({ children }: any) => <>{children}</>,
+}));
+
+// Mock useSiteConfig to return default values in tests
+vi.mock('../hooks/useSiteConfig', () => ({
+  useSiteConfig: () => ({
+    gitURL: 'https://github.com/testuser',
+    linkedInURL: 'https://www.linkedin.com/in/testuser',
+  }),
 }));
 
 // Mock window.matchMedia which doesn't exist in JSDOM
@@ -31,12 +42,20 @@ beforeEach(() => {
       matches: false,
       media: query,
       onchange: null,
-      addListener: vi.fn(), // Deprecated
-      removeListener: vi.fn(), // Deprecated
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
       addEventListener: vi.fn(),
       removeEventListener: vi.fn(),
       dispatchEvent: vi.fn(),
     })),
+  });
+
+  // Mock fetch for config.json
+  globalThis.fetch = vi.fn().mockResolvedValue({
+    json: () => Promise.resolve({
+      gitURL: 'https://github.com/testuser',
+      linkedInURL: 'https://www.linkedin.com/in/testuser',
+    }),
   });
 
   // Clear localStorage
@@ -82,28 +101,32 @@ describe('Portfolio Application Test Suite', () => {
     // Find category filter buttons
     const filterAll = screen.getByRole('button', { name: 'All Projects' });
     const filterAutomation = screen.getByRole('button', { name: 'automation' });
-    const filterDevelopment = screen.getByRole('button', { name: 'development' });
     
     expect(filterAll).toBeInTheDocument();
     expect(filterAutomation).toBeInTheDocument();
-    expect(filterDevelopment).toBeInTheDocument();
     
-    // Check that 'Bug Tracking System' is visible initially
+    // Check that fullstack projects are visible initially
     expect(screen.getByText('Bug Tracking System')).toBeInTheDocument();
+    expect(screen.getByText('Full Stack Reporting Application')).toBeInTheDocument();
     
-    // Click "automation" filter
+    // Check that automation projects are also visible (in "All Projects" mode)
+    expect(screen.getByText('Enterprise Web Automation Framework')).toBeInTheDocument();
+    expect(screen.getByText('End-to-End Test Automation Platform')).toBeInTheDocument();
+    
+    // Click "automation" filter — automation projects should be visible, fullstack hidden
     fireEvent.click(filterAutomation);
     
-    // 'Enterprise Automation Framework' (automation) should be visible, but 'Bug Tracking System' (fullstack) should be removed from view
-    expect(screen.getByText('Enterprise Automation Framework')).toBeInTheDocument();
+    expect(screen.getByText('Enterprise Web Automation Framework')).toBeInTheDocument();
+    expect(screen.getByText('End-to-End Test Automation Platform')).toBeInTheDocument();
     expect(screen.queryByText('Bug Tracking System')).not.toBeInTheDocument();
+    expect(screen.queryByText('Full Stack Reporting Application')).not.toBeInTheDocument();
   });
 
   it('can open project modal details and close it', async () => {
     render(<App />);
     
     // Click on a project card to select it
-    const projectCard = screen.getByText('Enterprise Automation Framework');
+    const projectCard = screen.getByText('Bug Tracking System');
     fireEvent.click(projectCard);
     
     // Modal should open, and should show detailed overview sections

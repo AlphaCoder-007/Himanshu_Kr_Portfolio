@@ -45,10 +45,10 @@ export function About() {
             <div className="mt-6 h-1.5 w-16 bg-accent-cyan rounded-full" />
             
             <p className="mt-8 text-base leading-relaxed text-slate-600 dark:text-slate-300">
-              I am a specialized **Lead SDET (Software Developer in Test) and Full-Stack Software Engineer** with over 8 years of experience designing scalable test-automation architectures and writing robust application services.
+              Software Engineer with 3.5+ years of professional experience across software development, QA automation, API testing, and database-driven applications, with a strong focus on full-stack development.
             </p>
             <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">
-              My core philosophy is that **quality is not an afterthought—it's a fundamental design requirement**. By bridging the gap between automation testing and software development, I build frameworks that execute fast, fail clearly, and integrate seamlessly into active CI/CD delivery pipelines, whilst contributing directly to backend microservices.
+              Hands-on experience developing web applications and REST APIs using React.js, Node.js, .NET Core, JavaScript, and SQL. Strong foundation in debugging, application performance optimization, Agile development, Git, CI/CD, Selenium automation, API testing, and SQL validation, bringing a quality-focused engineering approach to building reliable and maintainable software.
             </p>
           </div>
 

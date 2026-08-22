@@ -17,21 +17,21 @@ export function Expertise() {
   ];
 
   const automationHighlights = [
-    { title: "UI Automation", desc: "Expertise in Playwright and Selenium. Implementing clean Page Object Models, wait utilities, and shadow DOM parsing." },
-    { title: "API Automation", desc: "Building robust service validation suites using REST Assured and Axios. Complete with JSON Schema matching and Bearer token rotating logic." },
-    { title: "Database Validation", desc: "Direct validation using transactional pools (JDBC, EF Core, ADO.NET) to assert database updates after UI flows." },
-    { title: "Parallel & Distributed Runs", desc: "Configuring containerized clusters to execute hundreds of tests concurrently, reducing regression block times from hours to minutes." },
-    { title: "CI/CD Integration", desc: "Crafting pipeline steps that auto-trigger on PR merges and block deployment on quality gates failures." },
-    { title: "Rich Reporting", desc: "Structuring Allure, Extent, and JUnit XML outputs into detailed metrics dashboards with automated failure traces and screenshots." }
+    { title: "UI Automation", desc: "Developing and maintaining automated test cases using Selenium WebDriver and Playwright, creating reusable components and execution workflows." },
+    { title: "API Testing", desc: "Conducting REST API testing using Postman, validating responses, status codes, business workflows, and backend integrations." },
+    { title: "Database Validation", desc: "Validating database records and application workflows using SQL queries and CRUD operations to ensure data consistency." },
+    { title: "Regression Testing", desc: "Performing functional, regression, integration, and end-to-end testing to validate application functionality and business workflows." },
+    { title: "CI/CD Integration", desc: "Working with Git, CI/CD workflows, and version-controlled development and deployment processes." },
+    { title: "Defect Tracking", desc: "Identifying, analyzing, tracking, and reporting software defects in collaboration with development and business teams." }
   ];
 
   const devHighlights = [
-    { title: "Backend Development", desc: "Architecting high-concurrency microservices and web APIs in C# .NET Core and Node.js (Express/NestJS)." },
-    { title: "REST & Web APIs", desc: "Designing secure, documented (Swagger/OpenAPI), and versioned REST endpoints with robust JWT/OAuth authorization." },
-    { title: "Database Architecture", desc: "Modeling and querying schemas in MySQL, PostgreSQL, and SQL Server. Utilizing ORMs like Entity Framework Core and Prisma." },
-    { title: "React Frontend", desc: "Developing state-safe, responsive, accessible interfaces using TypeScript, Tailwind CSS, and advanced state libraries." },
-    { title: "Internal Engineering Tools", desc: "Creating Developer-First products, such as mocking dashboard tools and test data generator endpoints." },
-    { title: "System Integrations", desc: "Connecting queues, caching layers, and external payment processors (Stripe, Paypal) with complete transactional resilience." }
+    { title: "Backend Development", desc: "Building and maintaining backend services and business logic using Node.js, Express.js, and .NET Core with C#." },
+    { title: "REST & Web APIs", desc: "Building and integrating REST APIs for authentication, reporting, workflow automation, and data processing." },
+    { title: "Database Engineering", desc: "Working with SQL Server, MySQL, and MongoDB for data access, CRUD operations, database integration, and query optimization." },
+    { title: "React Frontend", desc: "Designing reusable React.js components and responsive user interfaces for enterprise applications." },
+    { title: "Full-Stack Integration", desc: "Integrating frontend applications with backend APIs to support end-to-end business workflows." },
+    { title: "Debugging & Optimization", desc: "Application debugging, production issue resolution, and performance optimization across frontend, backend, and database layers." }
   ];
 
   return (
@@ -181,26 +181,26 @@ export function Expertise() {
 
                   <div className="mt-6 space-y-4">
                     <div className="rounded-xl bg-white border border-slate-200 p-4 dark:bg-slate-900 dark:border-slate-800 shadow-sm">
-                      <span className="font-mono text-[10px] text-accent-indigo font-bold">SOLID ARCHITECTURE</span>
-                      <h4 className="mt-1 text-xs font-bold text-slate-900 dark:text-white">Domain-Driven Designs</h4>
+                      <span className="font-mono text-[10px] text-accent-indigo font-bold">FULL-STACK DEVELOPMENT</span>
+                      <h4 className="mt-1 text-xs font-bold text-slate-900 dark:text-white">Scalable Web Applications</h4>
                       <p className="mt-1.5 text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                        Writing decoupled code employing Dependency Injection, clear layered segregation (API, Core, Infrastructure), and rich domain entities that map cleanly to PostgreSQL or SQL Server databases.
+                        Developing full-stack web applications using React.js, Node.js, .NET Core, REST APIs, and SQL, covering frontend, backend, and database workflows.
                       </p>
                     </div>
 
                     <div className="rounded-xl bg-white border border-slate-200 p-4 dark:bg-slate-900 dark:border-slate-800 shadow-sm">
-                      <span className="font-mono text-[10px] text-accent-indigo font-bold">API RELIABILITY</span>
-                      <h4 className="mt-1 text-xs font-bold text-slate-900 dark:text-white font-mono">RESTful microservice design</h4>
+                      <span className="font-mono text-[10px] text-accent-indigo font-bold">API DEVELOPMENT</span>
+                      <h4 className="mt-1 text-xs font-bold text-slate-900 dark:text-white">REST API Integration</h4>
                       <p className="mt-1.5 text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                        Authoring highly tested REST endpoints with custom middleware chains for global error handling, logging (Serilog/Winston), and token validations.
+                        Building and integrating REST APIs for authentication, reporting, workflow automation, and data processing with backend business logic and CRUD operations.
                       </p>
                     </div>
 
                     <div className="rounded-xl bg-white border border-slate-200 p-4 dark:bg-slate-900 dark:border-slate-800 shadow-sm">
                       <span className="font-mono text-[10px] text-accent-indigo font-bold">FRONTEND ENGINEERING</span>
-                      <h4 className="mt-1 text-xs font-bold text-slate-900 dark:text-white">Component-Driven UIs</h4>
+                      <h4 className="mt-1 text-xs font-bold text-slate-900 dark:text-white">Reusable React Components</h4>
                       <p className="mt-1.5 text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">
-                        Structuring fast React templates using hooks, atomic components, client state management, and modern bundlers (Vite) while validating access via semantic HTML markup.
+                        Designing reusable React.js components and responsive user interfaces for enterprise applications with frontend-backend integration.
                       </p>
                     </div>
                   </div>

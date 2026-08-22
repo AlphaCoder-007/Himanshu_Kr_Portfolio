@@ -1,6 +1,7 @@
-import { Github, Linkedin, FileText, ChevronRight, Terminal, ShieldCheck } from 'lucide-react';
+import { Github, Linkedin, FileText, ChevronRight, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { heroData } from '../data/portfolioData';
+import { useSiteConfig } from '../hooks/useSiteConfig';
 
 export function Hero() {
   const containerVariants = {
@@ -36,6 +37,8 @@ export function Hero() {
       });
     }
   };
+
+  const config = useSiteConfig();
 
   return (
     <section
@@ -114,8 +117,8 @@ export function Hero() {
               </a>
 
               <a
-                href="/resume/Himanshu_Kr_Resume.pdf"
-                download="Himanshu_Kr_Resume.pdf"
+                href="/resume/Himanshu%20Kr..pdf"
+                download
                 className="btn-secondary flex items-center gap-2 font-medium w-full sm:w-auto"
               >
                 <FileText className="h-4 w-4" />
@@ -124,7 +127,7 @@ export function Hero() {
 
               <div className="flex items-center gap-3 mt-4 sm:mt-0 sm:ml-2 sm:border-l border-slate-200 sm:pl-6 dark:border-slate-800">
                 <a
-                  href={heroData.githubUrl}
+                  href={config.gitURL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-900 dark:hover:text-white transition-colors"
@@ -133,7 +136,7 @@ export function Hero() {
                   <Github className="h-5 w-5" />
                 </a>
                 <a
-                  href={heroData.linkedinUrl}
+                  href={config.linkedInURL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-900 dark:hover:text-white transition-colors"
@@ -145,76 +148,88 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Interactive Tech Visual Card Column */}
+          {/* Code Snippet Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             className="lg:col-span-5 hidden lg:block"
           >
-            <div className="relative mx-auto max-w-md rounded-2xl border border-slate-200 bg-white/50 p-6 shadow-xl shadow-slate-100 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/40 dark:shadow-none animate-float">
-              
-              {/* Card Header (IDE style) */}
-              <div className="flex items-center justify-between border-b border-slate-200/60 pb-4 dark:border-slate-800/60">
+            <div className="relative mx-auto w-full max-w-md rounded-2xl border border-slate-200 bg-white/50 p-5 shadow-xl shadow-slate-100 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/40 dark:shadow-none">
+              {/* Logo Watermark */}
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden rounded-2xl">
+                <img
+                  src="/logo.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="h-40 w-40 object-contain opacity-[0.04] dark:opacity-[0.15] select-none"
+                />
+              </div>
+
+              {/* IDE Header */}
+              <div className="relative flex items-center justify-between border-b border-slate-200/60 pb-3 dark:border-slate-800/60">
                 <div className="flex gap-1.5">
                   <span className="h-3 w-3 rounded-full bg-red-500/80" />
                   <span className="h-3 w-3 rounded-full bg-yellow-500/80" />
                   <span className="h-3 w-3 rounded-full bg-green-500/80" />
                 </div>
-                <span className="font-mono text-xs text-slate-400">quality_assurance_spec.ts</span>
+                <span className="font-mono text-[10px] text-slate-400">fullstack.config.ts</span>
               </div>
 
-              {/* Pseudo-Code Console Screen */}
-              <div className="mt-4 space-y-4 font-mono text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+              {/* Code Content */}
+              <div className="relative mt-4 space-y-3 font-mono text-[11px] leading-relaxed text-slate-600 dark:text-slate-400">
                 <div>
-                  <span className="text-purple-600 dark:text-purple-400">import</span> {'{ PlaywrightTest, assert }'} <span className="text-purple-600 dark:text-purple-400">from</span> <span className="text-emerald-600 dark:text-emerald-400">'@core/test'</span>;
+                  <span className="text-purple-600 dark:text-purple-400">import</span> {'{'} createApp {'}'} <span className="text-purple-600 dark:text-purple-400">from</span> <span className="text-emerald-600 dark:text-emerald-400">'@core/engine'</span>;
                 </div>
-                
-                <div className="rounded-lg bg-slate-50 p-3 dark:bg-slate-950/60 border border-slate-100 dark:border-slate-900">
-                  <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold mb-1">
-                    <Terminal className="h-3.5 w-3.5" />
-                    <span>Executing Integration Suite...</span>
+
+                <div className="relative rounded-lg bg-slate-50 p-3 dark:bg-slate-950/60 border border-slate-100 dark:border-slate-900 overflow-hidden">
+                  <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                    <img src="/logo.png" alt="" aria-hidden="true" className="h-20 w-20 object-contain opacity-[0.14] dark:opacity-[0.12] select-none" />
                   </div>
-                  <div className="text-[10px] text-slate-400 dark:text-slate-500">
-                    [10:42:15] GET /api/v1/auth/session - <span className="text-emerald-500">200 OK (15ms)</span>
-                    <br />
-                    [10:42:16] DB query 'SELECT_USER' - <span className="text-emerald-500">1 row (3ms)</span>
-                    <br />
-                    [10:42:17] UI Click: button#submit - <span className="text-emerald-500">Success</span>
+                  <div className="relative flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold mb-2">
+                    <Terminal className="h-3.5 w-3.5" />
+                    <span>System Capabilities</span>
+                  </div>
+                  <div className="space-y-1.5 text-[10px]">
+                    <div className="flex items-center gap-2">
+                      <span className="text-emerald-500">✓</span>
+                      <span>React.js <span className="text-slate-400">· Frontend Architecture</span></span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-emerald-500">✓</span>
+                      <span>Node.js <span className="text-slate-400">· REST API Development</span></span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-emerald-500">✓</span>
+                      <span>.NET Core <span className="text-slate-400">· Backend Services</span></span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-emerald-500">✓</span>
+                      <span>SQL <span className="text-slate-400">· Database Engineering</span></span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-emerald-500">✓</span>
+                      <span>Selenium <span className="text-slate-400">· QA Automation</span></span>
+                    </div>
                   </div>
                 </div>
 
-                <div className="space-y-1">
-                  <div>
-                    <span className="text-blue-600 dark:text-blue-400">describe</span>(<span className="text-emerald-600 dark:text-emerald-400">'Critical Flow'</span>, () =&gt; {'{'}
-                  </div>
-                  <div className="pl-4">
-                    <span className="text-blue-600 dark:text-blue-400">it</span>(<span className="text-emerald-600 dark:text-emerald-400">'should commit transaction & update UI'</span>, <span className="text-purple-600 dark:text-purple-400">async</span> () =&gt; {'{'}
-                  </div>
-                  <div className="pl-8 space-y-0.5">
-                    <div><span className="text-purple-600 dark:text-purple-400">await</span> app.<span className="text-blue-500">fillLoginForm</span>(user);</div>
-                    <div><span className="text-purple-600 dark:text-purple-400">await</span> app.<span className="text-blue-500">triggerAction</span>();</div>
-                    <div><span className="text-purple-600 dark:text-purple-400">const</span> status = <span className="text-purple-600 dark:text-purple-400">await</span> app.<span className="text-blue-500">getDatabaseStatus</span>();</div>
-                    <div className="text-slate-400">// Strict Assertion</div>
-                    <div>assert.<span className="text-blue-500">equal</span>(status, <span className="text-emerald-600 dark:text-emerald-400">'CONFIRMED'</span>);</div>
-                  </div>
-                  <div className="pl-4">{'}'});</div>
+                <div className="space-y-0.5">
+                  <div><span className="text-blue-600 dark:text-blue-400">const</span> engineer = <span className="text-blue-600 dark:text-blue-400">await</span> createApp({'{'}</div>
+                  <div className="pl-4">role: <span className="text-emerald-600 dark:text-emerald-400">'Full-Stack Developer'</span>,</div>
+                  <div className="pl-4">focus: [<span className="text-emerald-600 dark:text-emerald-400">'frontend'</span>, <span className="text-emerald-600 dark:text-emerald-400">'backend'</span>, <span className="text-emerald-600 dark:text-emerald-400">'quality'</span>],</div>
+                  <div className="pl-4">experience: <span className="text-amber-600 dark:text-amber-400">'3.5+ years'</span>,</div>
                   <div>{'}'});</div>
                 </div>
-
-                <div className="flex items-center justify-between border-t border-slate-200/40 pt-4 dark:border-slate-800/40 text-[11px]">
-                  <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
-                    <ShieldCheck className="h-3.5 w-3.5" />
-                    Passed: 148 / 148
-                  </span>
-                  <span className="text-slate-400">Duration: 1.2s</span>
-                </div>
               </div>
-              
-              {/* Floating micro decoration badges */}
-              <div className="absolute -bottom-4 -left-4 animate-float flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 shadow-md dark:border-slate-800 dark:bg-slate-900">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="font-mono text-[10px] text-slate-600 dark:text-slate-300">POM Framework Active</span>
+
+              {/* Status Bar */}
+              <div className="mt-4 flex items-center justify-between border-t border-slate-200/40 pt-3 dark:border-slate-800/40 text-[10px]">
+                <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                  Systems Operational
+                </span>
+                <span className="text-slate-400">TypeScript · React · Node</span>
               </div>
             </div>
           </motion.div>

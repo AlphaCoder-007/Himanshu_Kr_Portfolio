@@ -30,8 +30,9 @@ export interface Project {
   category: 'automation' | 'development' | 'api' | 'fullstack';
   challenge: string;
   solution: string;
-  githubLink?: string; 
-  liveLink?: string; 
+  keyFeatures?: string[];
+  githubLink?: string;
+  liveLink?: string;
 }
 
 export interface Certification {
@@ -58,12 +59,10 @@ export interface Achievement {
 
 export const heroData = {
   name: "Himanshu Kumar Tripathi",
-  title: "Full Stack Developer",
-  tagline: "Full Stack Developer | React.js | Node.js | .NET Core | JavaScript | REST APIs | SQL",
-  valueProposition: "Software Engineer with 3.5+ years of experience in software development, QA automation, and database-driven applications. Experienced in developing web applications and REST APIs using React.js, Node.js, .NET Core, JavaScript, and SQL.",
+  title: "Full-Stack Software Engineer",
+  tagline: "Full-Stack Software Engineer | React.js | Node.js | .NET Core | REST APIs | SQL",
+  valueProposition: "Software Engineer with 3.5+ years of professional experience across software development, QA automation, API testing, and database-driven applications, with a strong focus on full-stack development. Hands-on experience developing web applications and REST APIs using React.js, Node.js, .NET Core, JavaScript, and SQL.",
   resumeUrl: "#",
-  githubUrl: "#",
-  linkedinUrl: "#",
   email: "tripathi.kr.himanshu@gmail.com"
 };
 
@@ -80,7 +79,7 @@ export const statsData: Stat[] = [
   },
   {
     label: "Technologies Mastered",
-    value: "10+",
+    value: "12+",
     description: "Across frontend, backend, database, and testing domains."
   },
   {
@@ -120,13 +119,14 @@ export const skillsData: Skill[] = [
   { name: "Postman", category: "automation" },
   { name: "API Testing", category: "automation" },
   { name: "Regression Testing", category: "automation" },
-  { name: "Functional Testing", category: "automation" },
+  { name: "SQL Validation", category: "automation" },
 
   // Development Tools
   { name: "Git", category: "devops" },
   { name: "GitHub", category: "devops" },
   { name: "CI/CD", category: "devops" },
-  { name: "Microsoft Azure", category: "devops" }
+  { name: "Microsoft Azure", category: "devops" },
+  { name: "Jira", category: "devops" }
 ];
 
 export const experienceData: Experience[] = [
@@ -135,44 +135,134 @@ export const experienceData: Experience[] = [
     company: "NAV Fund Services (India) Pvt. Ltd.",
     role: "Senior Associate Engineer",
     duration: "October 2024 – Present",
-    description: "Developing and maintaining scalable web application components and integrated REST APIs.",
+    description: "Developed and maintained scalable web application components using React.js, Node.js, .NET Core, JavaScript, and SQL.",
     responsibilities: [
-      "Developed and maintained scalable web application components using React.js, Node.js, .NET Core, JavaScript, and SQL.",
       "Designed reusable React.js components and supported responsive user interfaces for enterprise applications.",
-      "Developed and integrated REST APIs for authentication, reporting, workflow automation, and data processing.",
+      "Built and integrated REST APIs for authentication, reporting, workflow automation, and data processing.",
       "Implemented backend business logic, CRUD operations, and database interaction modules.",
-      "Collaborated with cross-functional teams in Agile environments to deliver production-ready features."
+      "Integrated frontend applications with backend APIs to support end-to-end business workflows.",
+      "Worked on application debugging and production issue resolution across frontend, backend, and database layers.",
+      "Optimized application workflows and database interactions to improve application performance and reliability.",
+      "Collaborated with cross-functional teams in Agile environments to deliver production-ready features.",
+      "Worked with Git, CI/CD workflows, and version-controlled development and deployment processes.",
+      "Applied QA automation and testing knowledge during development to identify defects early and improve overall software quality."
     ],
     developmentHighlights: [
       "Designed reusable React.js components.",
       "Integrated backend APIs with frontend.",
       "Optimized application workflows and database interactions."
     ],
-    techStack: ["React.js", "Node.js", ".NET Core", "JavaScript", "SQL", "Git"]
+    techStack: ["React.js", "Node.js", ".NET Core", "JavaScript", "C#", "SQL", "REST APIs", "Git", "CI/CD"]
   },
   {
     id: "exp-2",
     company: "SEB Administrative Pvt. Ltd.",
     role: "Senior Test Engineer",
     duration: "June 2022 – July 2024",
-    description: "Developed and maintained automation frameworks and performed comprehensive application testing.",
+    description: "Performed manual and automation testing for enterprise web applications across functional and regression workflows.",
     responsibilities: [
-      "Developed and maintained Selenium WebDriver automation for enterprise web applications, creating reusable components and automation workflows.",
-      "Performed functional, regression, integration, and end-to-end testing to validate application functionality and business workflows.",
-      "Developed and enhanced reusable automation framework components to improve test execution efficiency and maintainability.",
-      "Conducted REST API testing using Postman, validating API responses, status codes, business logic, and backend workflows.",
-      "Validated frontend-backend integration and database consistency using SQL queries and CRUD operations."
+      "Developed and maintained automated web application test cases using Selenium WebDriver.",
+      "Designed reusable automation components and execution workflows to improve testing efficiency.",
+      "Conducted REST API testing using Postman, validating responses, status codes, business workflows, and backend integrations.",
+      "Validated database records and application workflows using SQL queries and CRUD operations.",
+      "Identified, analyzed, tracked, and reported software defects in collaboration with development and business teams.",
+      "Participated in Agile ceremonies including sprint planning, stand-ups, defect triage, and release activities.",
+      "Validated frontend and backend integration workflows to ensure application consistency.",
+      "Contributed to reusable automation framework components and reporting utilities."
     ],
     automationHighlights: [
       "Selenium WebDriver automation framework.",
       "Reusable automation components.",
       "REST API testing with Postman."
     ],
-    techStack: ["Selenium", "JavaScript", "SQL", "Postman", "Agile"]
+    techStack: ["Selenium WebDriver", "JavaScript", "Postman", "REST APIs", "SQL", "Automation Frameworks", "Agile"]
   }
 ];
 
 export const projectsData: Project[] = [
+  // --- Automation ---
+  {
+    id: "proj-auto-1",
+    name: "Enterprise Web Automation Framework",
+    description: "A scalable Selenium-based test automation framework for enterprise web applications using Java, TestNG, and Page Object Model.",
+    longDescription: "A comprehensive, enterprise-grade test automation framework built with Java, Selenium WebDriver, TestNG, and Maven. Implements the Page Object Model (POM) design pattern to encapsulate element selectors and provide reusable, maintainable test components. Integrates REST API validation, SQL database verification, and CI/CD pipeline execution to ensure end-to-end quality across critical business workflows.",
+    technologies: ["Java", "Selenium WebDriver", "TestNG", "Maven", "Page Object Model", "REST API", "SQL", "Git", "CI/CD"],
+    category: "automation",
+    challenge: "Designing a maintainable automation framework that scales across multiple web applications, handles flaky test isolation, and integrates UI, API, and database validation into a unified execution pipeline.",
+    solution: "Implemented the Page Object Model for clean separation of UI selectors and test logic. Used TestNG for parallel execution and data-driven testing. Integrated REST Assured for API assertions and JDBC for SQL validation. Configured Maven profiles and CI/CD jobs to trigger automated regression suites on every pull request.",
+    keyFeatures: [
+      "Page Object Model with reusable page components",
+      "Parallel test execution via TestNG and Maven Surefire",
+      "REST API validation integrated into UI test workflows",
+      "SQL database state verification post-execution",
+      "CI/CD integration with automated regression runs"
+    ],
+    githubLink: "#",
+    liveLink: undefined
+  },
+  {
+    id: "proj-auto-2",
+    name: "End-to-End Test Automation Platform",
+    description: "A cross-browser test automation platform built with Playwright, TypeScript, and comprehensive reporting capabilities.",
+    longDescription: "An end-to-end test automation platform leveraging Playwright and TypeScript for reliable cross-browser testing. Features parallel test execution across Chromium, Firefox, and WebKit, with built-in API automation, database validation, and automated HTML/JSON reporting. Configured with GitHub Actions for continuous regression testing on every code change.",
+    technologies: ["Playwright", "TypeScript", "JavaScript", "API Automation", "Database Validation", "HTML Reporting", "CI/CD", "GitHub Actions", "Jenkins"],
+    category: "automation",
+    challenge: "Building a fast, reliable cross-browser automation platform that handles async operations, maintains test isolation across browser contexts, and provides actionable reporting across multiple execution environments.",
+    solution: "Used Playwright's native browser context isolation and auto-wait mechanisms for reliable element interactions. Implemented API testing utilities alongside UI tests for full-stack validation. Designed custom reporters to generate HTML and JSON execution summaries. Automated the entire pipeline using GitHub Actions workflows with matrix builds for cross-browser coverage.",
+    keyFeatures: [
+      "Cross-browser testing (Chromium, Firefox, WebKit)",
+      "Native browser context isolation for test reliability",
+      "Integrated API and database validation utilities",
+      "Custom HTML and JSON reporting dashboards",
+      "GitHub Actions CI/CD with matrix browser builds"
+    ],
+    githubLink: "#",
+    liveLink: undefined
+  },
+
+  // --- Development ---
+  {
+    id: "proj-dev-1",
+    name: "Developer Productivity & Workflow Management Platform",
+    description: "A full-stack workflow management application for tracking tasks, managing sprints, and streamlining developer productivity.",
+    longDescription: "A full-stack developer productivity platform built with Spring Boot, React.js, and MySQL. Provides task management, sprint planning, team collaboration, and workflow automation capabilities. Features secure authentication with role-based access, RESTful API architecture, and a responsive dashboard for real-time project visibility.",
+    technologies: ["Java", "Spring Boot", "REST API", "MySQL", "React.js", "JavaScript", "HTML5", "CSS3", "Authentication", "Git"],
+    category: "development",
+    challenge: "Building a secure, scalable workflow management system that supports real-time task updates, role-based permissions, and integrates cleanly across frontend, backend, and database layers.",
+    solution: "Designed a RESTful API backend with Spring Boot for business logic and data access. Implemented JWT-based authentication and role-based access control for secure multi-user support. Built a responsive React.js frontend with task boards, sprint views, and analytics dashboards. Used MySQL with indexed queries for efficient data retrieval and performance.",
+    keyFeatures: [
+      "JWT-based authentication with role-based access control",
+      "Sprint planning and task management boards",
+      "Real-time workflow status updates",
+      "Responsive dashboard with analytics views",
+      "RESTful API architecture with Spring Boot"
+    ],
+    githubLink: "#",
+    liveLink: undefined
+  },
+
+  // --- API ---
+  {
+    id: "proj-api-1",
+    name: "Enterprise REST API Testing & Validation Suite",
+    description: "A comprehensive API testing suite for automated REST API validation, schema verification, and business logic testing.",
+    longDescription: "An enterprise-grade REST API testing and validation suite built with Node.js and Postman/Newman for automated API regression testing. Covers authentication flows, CRUD operations, response schema validation, business logic verification, and SQL database state checks. Integrated with CI/CD pipelines for continuous API quality assurance across development and staging environments.",
+    technologies: ["REST API", "Postman", "Newman", "Node.js", "JavaScript", "JSON Schema", "SQL", "Authentication", "Automated Validation", "CI/CD"],
+    category: "api",
+    challenge: "Creating an automated API testing suite that validates complex authentication workflows, enforces response schema contracts, and detects business logic regressions across rapidly evolving REST endpoints.",
+    solution: "Built automated test collections in Postman with environment-specific configurations. Used Newman for CLI-based execution in CI/CD pipelines. Implemented JSON schema validation to enforce API response contracts. Added SQL verification queries to validate database state after API operations. Designed modular test scripts for reusability across different API endpoints.",
+    keyFeatures: [
+      "Automated REST API regression test collections",
+      "JSON schema validation for response contract enforcement",
+      "Authentication and authorization flow testing",
+      "SQL-based database state verification post-API calls",
+      "Newman CI/CD integration for automated execution"
+    ],
+    githubLink: "#",
+    liveLink: undefined
+  },
+
+  // --- Fullstack ---
   {
     id: "proj-1",
     name: "Bug Tracking System",
@@ -180,32 +270,32 @@ export const projectsData: Project[] = [
     longDescription: "A full-stack issue tracking platform for managing software defects and issue lifecycle workflows including ticket creation, assignment, priority management, and role-based access control.",
     technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "REST APIs"],
     category: "fullstack",
-    challenge: "Managing complex issue lifecycles and role-based access control.",
-    solution: "Implemented modular backend architecture with RESTful APIs and secure authentication/authorization.",
+    challenge: "Managing complex issue lifecycles with role-based access control across frontend, backend, and database layers.",
+    solution: "Built reusable React.js components, developed REST APIs for issue management, implemented authentication and role-based access control, and applied modular backend architecture.",
+    keyFeatures: [
+      "Role-based access control for multi-user support",
+      "Issue creation, assignment, and priority management",
+      "RESTful API architecture for frontend-backend communication",
+      "Reusable React.js component library"
+    ],
     githubLink: "#",
     liveLink: undefined
   },
   {
     id: "proj-2",
-    name: "Automation Reporting Dashboard",
-    description: "A centralized web-based dashboard for monitoring and analyzing automation test execution.",
-    longDescription: "A centralized web-based dashboard for monitoring and analyzing automation test execution, providing execution tracking, filtering, analytics, and SQL-based reporting.",
-    technologies: ["React.js", "Node.js", "SQL", "Selenium"],
+    name: "Full Stack Reporting Application",
+    description: "A centralized reporting dashboard for automation execution analytics and reporting.",
+    longDescription: "A centralized reporting dashboard for automation execution analytics and reporting, providing execution tracking, filtering, analytics, and SQL-based reporting integrated with Selenium execution data.",
+    technologies: ["React.js", "Node.js", "SQL", "Selenium", "REST APIs"],
     category: "fullstack",
-    challenge: "Integrating disparate automation execution data into a centralized view.",
-    solution: "Developed a React dashboard with Node.js backend using SQL to retrieve and visualize automation metrics.",
-    githubLink: "#",
-    liveLink: undefined
-  },
-  {
-    id: "proj-3",
-    name: "Enterprise Automation Framework",
-    description: "A reusable automation framework designed for enterprise web application testing.",
-    longDescription: "A reusable automation framework designed for enterprise web application testing with configurable execution, functional, regression, and reporting utilities.",
-    technologies: ["Selenium", "JavaScript", "Node.js", "SQL"],
-    category: "automation",
-    challenge: "Ensuring framework maintainability and reusability.",
-    solution: "Implemented a modular architecture with reusable components and configurable test execution routines.",
+    challenge: "Integrating disparate automation execution data into a centralized view with real-time analytics.",
+    solution: "Built frontend modules for execution tracking and analytics, developed backend functionality for processing automation data, and implemented SQL-based data retrieval and reporting workflows.",
+    keyFeatures: [
+      "Real-time execution tracking dashboard",
+      "SQL-based reporting and analytics",
+      "Selenium execution data integration",
+      "Filterable test result views"
+    ],
     githubLink: "#",
     liveLink: undefined
   }
@@ -216,24 +306,28 @@ export const certificationsData: Certification[] = [];
 export const educationData: Education = {
   degree: "Bachelor of Technology (B.Tech) in Computer Science and Engineering",
   institution: "Dr. A.P.J. Abdul Kalam Technical University",
-  duration: "August 2014 – July 2018",
-  details: "Percentage: 74.4%"
+  duration: "August 2014 – July 2018"
 };
 
 export const achievementsData: Achievement[] = [
   {
     id: "ach-1",
     title: "Full-Stack Development",
-    description: "Developed full-stack web applications and REST APIs, covering frontend, backend, and database workflows.",
+    description: "Developed full-stack web applications and REST APIs using React.js, Node.js, .NET Core, and SQL, covering frontend, backend, and database workflows."
   },
   {
     id: "ach-2",
     title: "Reporting Dashboard",
-    description: "Built a centralized automation reporting dashboard integrating Selenium execution data, improving test-result visibility."
+    description: "Built a centralized automation reporting dashboard integrating Selenium execution data, improving test-result visibility and reducing manual monitoring effort."
   },
   {
     id: "ach-3",
     title: "Framework Development",
-    description: "Developed reusable automation frameworks and application components, improving maintainability and reliability."
+    description: "Developed reusable automation frameworks and application components, combining software development and QA expertise to improve maintainability, reliability, and release quality."
+  },
+  {
+    id: "ach-4",
+    title: "Agile Collaboration",
+    description: "Collaborated with cross-functional Agile teams to troubleshoot application issues, integrate APIs and databases, and deliver reliable, maintainable software solutions."
   }
 ];

@@ -1,7 +1,11 @@
-import { Terminal, Github, Linkedin, Heart } from 'lucide-react';
+import { Github, Linkedin, Heart } from 'lucide-react';
+import { NavbarParticleLogo } from '../components/NavbarParticleLogo';
+import { VisitorCounter } from '../components/VisitorCounter';
 import { heroData } from '../data/portfolioData';
+import { useSiteConfig } from '../hooks/useSiteConfig';
 
 export function Footer() {
+  const config = useSiteConfig();
   const currentYear = new Date().getFullYear();
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -27,9 +31,9 @@ export function Footer() {
           
           {/* Logo / Brand */}
           <div className="flex items-center gap-2 font-mono text-base font-bold text-slate-900 dark:text-white">
-            <Terminal className="h-4.5 w-4.5 text-accent-cyan" />
+            <NavbarParticleLogo className="h-6 w-6" />
             <span>
-              alex_mercer<span className="text-accent-cyan">.sh</span>
+              HT<span className="text-accent-cyan">.dev</span>
             </span>
           </div>
 
@@ -46,7 +50,7 @@ export function Footer() {
           {/* Social icons */}
           <div className="flex gap-4">
             <a
-              href={heroData.githubUrl}
+              href={config.gitURL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
@@ -55,7 +59,7 @@ export function Footer() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href={heroData.linkedinUrl}
+              href={config.linkedInURL}
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-sky-600 transition-colors"
@@ -72,6 +76,7 @@ export function Footer() {
           <span>
             &copy; {currentYear} {heroData.name}. All rights reserved.
           </span>
+          <VisitorCounter />
           <span className="flex items-center gap-1">
             Built with <Heart className="h-3.5 w-3.5 text-red-500 fill-red-500" /> using React, TypeScript & Tailwind CSS.
           </span>
