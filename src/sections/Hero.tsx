@@ -117,7 +117,7 @@ export function Hero() {
               </a>
 
               <a
-                href="/resume/Himanshu%20Kr..pdf"
+                href={`${import.meta.env.BASE_URL}resume/Himanshu%20Kr..pdf`}
                 download
                 className="btn-secondary flex items-center gap-2 font-medium w-full sm:w-auto"
               >
