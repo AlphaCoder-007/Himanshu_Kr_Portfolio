@@ -15,7 +15,7 @@ export function useSiteConfig(): SiteConfig {
 
   useEffect(() => {
     let cancelled = false;
-    fetch('/config.json')
+    fetch(`${import.meta.env.BASE_URL}config.json`)
       .then((res) => res.json())
       .then((data: SiteConfig) => {
         if (!cancelled) {
