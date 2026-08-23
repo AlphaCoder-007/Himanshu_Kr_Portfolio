@@ -42,7 +42,7 @@
     "axe-core": "^4.13.0",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-react-refresh": "^0.4.9",
+    "eslint-plugin-react-refresh": "^0.5.4",
     "husky": "^9.1.7",
     "jsdom": "^24.1.1",
     "lint-staged": "^17.3.0",
