@@ -159,7 +159,7 @@ export function Hero() {
               {/* Logo Watermark */}
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden rounded-2xl">
                 <img
-                  src="/logo.png"
+                    src={`${import.meta.env.BASE_URL}logo.png`}
                   alt=""
                   aria-hidden="true"
                   className="h-40 w-40 object-contain opacity-[0.04] dark:opacity-[0.15] select-none"
@@ -184,7 +184,7 @@ export function Hero() {
 
                 <div className="relative rounded-lg bg-slate-50 p-3 dark:bg-slate-950/60 border border-slate-100 dark:border-slate-900 overflow-hidden">
                   <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                    <img src="/logo.png" alt="" aria-hidden="true" className="h-20 w-20 object-contain opacity-[0.14] dark:opacity-[0.12] select-none" />
+                    <img src={`${import.meta.env.BASE_URL}logo.png`} alt="" aria-hidden="true" className="h-20 w-20 object-contain opacity-[0.14] dark:opacity-[0.12] select-none" />
                   </div>
                   <div className="relative flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold mb-2">
                     <Terminal className="h-3.5 w-3.5" />

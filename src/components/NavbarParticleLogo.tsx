@@ -32,7 +32,7 @@ export function NavbarParticleLogo({ className = "h-8 w-8" }: NavbarParticleLogo
         }}
       >
         <img
-          src="/logo.png"
+            src={`${import.meta.env.BASE_URL}logo.png`}
           alt="Logo"
           className="h-full w-full object-contain"
           draggable={false}
